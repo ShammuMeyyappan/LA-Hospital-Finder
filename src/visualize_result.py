@@ -102,7 +102,7 @@ with open(r"data/processed/CSV/dignity - Sheet1.csv", 'r', encoding='utf-8') as 
 
 all_lists = [list1, list2, list3, list4, list5, list6, list7]
 
-def search_multiple_lists(search, lists_search):
+def search_multiple_lists(search, lists_search) -> list[str]:
     """
     Searches for matching hospitals through dataset based on user input.
     """
