@@ -1,0 +1,10 @@
+﻿Installation Requirements
+pip install bs4
+pip install requests
+pip install csv
+Pip install matplotlib.pyplot 
+Pip install pandas
+Pip install sklearn
+Pip install numpy 
+Pip install pandas 
+Pip install geopandas
