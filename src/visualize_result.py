@@ -1,30 +1,30 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[30]:
-
-
 import matplotlib.pyplot as plt
 import pandas as pd
-with open(r"mlkch - Sheet1.csv", 'r', encoding='utf-8') as f:
+import csv
+import geopandas as gpd
+from matplotlib.patches import FancyArrow, Rectangle
+from matplotlib.lines import Line2D
+import numpy as np
+
+with open(r"data/processed/CSV/mlkch - Sheet1.csv", 'r', encoding='utf-8') as f:
     res = sum(1 for line in f)
 print(res)
-with open(r"ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as f:
     res1 = sum(1 for line in f)
 print(res1)
-with open(r"ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as f:
     res2 = sum(1 for line in f)
 print(res2)
-with open(r"lalach - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/lalach - Sheet1.csv", 'r', encoding='utf-8') as f:
     res3 = sum(1 for line in f)
 print(res3)
-with open(r"ucla - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ucla - Sheet1.csv", 'r', encoding='utf-8') as f:
     res4 = sum(1 for line in f)
 print(res4)
-with open(r"keck - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/keck - Sheet1.csv", 'r', encoding='utf-8') as f:
     res5 = sum(1 for line in f)
 print(res5)
-with open(r"dignity - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/dignity - Sheet1.csv", 'r', encoding='utf-8') as f:
     res6 = sum(1 for line in f)
 print(res6)
 items = ["MLKCH", "LADTMC", "Hollywood", "lachla", "UCLA", "Keck&Norris", "CHMC"]
@@ -35,31 +35,25 @@ plt.ylabel('Values')
 plt.title('Insurances')
 plt.show()
 
-
-# In[ ]:
-
-
-import matplotlib.pyplot as plt
-import pandas as pd
-with open(r"MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res = sum(1 for line in f)
 print(res)
-with open(r"ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res1 = sum(1 for line in f)
 print(res1)
-with open(r"sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res2 = sum(1 for line in f)
 print(res2)
-with open(r"lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res3 = sum(1 for line in f)
 print(res3)
-with open(r"ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res4 = sum(1 for line in f)
 print(res4)
-with open(r"service_keck - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/service_keck - Sheet1.csv", 'r', encoding='utf-8') as f:
     res5 = sum(1 for line in f)
 print(res5)
-with open(r"dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     res6 = sum(1 for line in f)
 print(res6)
 items = ["MLKCH", "LADTMC", "Hollywood", "LAlach", "UCLA", "Keck&Norris", "CHMC"]
@@ -70,44 +64,38 @@ plt.ylabel('Count')
 plt.title('Services')
 plt.show()
 
-
-# In[31]:
-
-
-import csv
-
 list1 = []
-with open(r"mlkch - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/mlkch - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list1.append(row)
 list2 = []
-with open(r"ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list2.append(row)
 list3 = []
-with open(r"ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list3.append(row)
 list4 = []
-with open(r"lalach - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/lalach - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list4.append(row)
 list5 = []
-with open(r"ucla - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/ucla - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list5.append(row)
 list6 = []
-with open(r"keck - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/keck - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list6.append(row)
 list7 = []
-with open(r"dignity - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/dignity - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list7.append(row)
@@ -115,6 +103,9 @@ with open(r"dignity - Sheet1.csv", 'r', encoding='utf-8') as file:
 all_lists = [list1, list2, list3, list4, list5, list6, list7]
 
 def search_multiple_lists(search, lists_search):
+    """
+    Searches for matching hospitals through dataset based on user input.
+    """
     found_list = []
     for i, lists in enumerate(lists_search):
         for row in lists:
@@ -132,59 +123,43 @@ if results:
 else:
     print(f"'{user_input}' was not found in any list")
 
-
-# In[ ]:
-
-
-import csv
-
 list1 = []
-with open(r"MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list1.append(row)
 list2 = []
-with open(r"ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list2.append(row)
 list3 = []
-with open(r"sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list3.append(row)
 list4 = []
-with open(r"lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list4.append(row)
 list5 = []
-with open(r"ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list5.append(row)
 list6 = []
-with open(r"service_keck - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/service_keck - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list6.append(row)
 list7 = []
-with open(r"dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
+with open(r"data/processed/CSV/dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         list7.append(row)
 
 all_lists = [list1, list2, list3, list4, list5, list6, list7]
-
-def search_multiple_lists(search, lists_search):
-    found_list = []
-    for i, lists in enumerate(lists_search):
-        for row in lists:
-            if any(search in col for col in row):
-                found_list.append(f"{i+1}")
-                break
-    return found_list
-user_input = input("Enter Service: ")
 
 results = search_multiple_lists(user_input, all_lists)
 
@@ -194,57 +169,49 @@ if results:
 else:
     print(f"'{user_input}' was not found in any list")
 
-
-# In[29]:
-
-
-import sklearn
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-with open(r"mlkch - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/mlkch - Sheet1.csv", 'r', encoding='utf-8') as f:
     res = sum(1 for line in f)
 print(res)
-with open(r"ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ladowntownmc - Sheet1.csv", 'r', encoding='utf-8') as f:
     res1 = sum(1 for line in f)
 print(res1)
-with open(r"ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ssh-hollywood - Sheet1.csv", 'r', encoding='utf-8') as f:
     res2 = sum(1 for line in f)
 print(res2)
-with open(r"lalach - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/lalach - Sheet1.csv", 'r', encoding='utf-8') as f:
     res3 = sum(1 for line in f)
 print(res3)
-with open(r"ucla - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ucla - Sheet1.csv", 'r', encoding='utf-8') as f:
     res4 = sum(1 for line in f)
 print(res4)
-with open(r"keck - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/keck - Sheet1.csv", 'r', encoding='utf-8') as f:
     res5 = sum(1 for line in f)
 print(res5)
-with open(r"dignity - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/dignity - Sheet1.csv", 'r', encoding='utf-8') as f:
     res6 = sum(1 for line in f)
 print(res6, "Insurance")
 
 values = pd.Series([res, res1, res2, res3, res4, res5, res6])
 
-with open(r"MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/MLKCH_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result = sum(1 for line in f)
 print(result)
-with open(r"ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ladowntownmc_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result1 = sum(1 for line in f)
 print(result1)
-with open(r"sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result2 = sum(1 for line in f)
 print(result2)
-with open(r"lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/lach-la_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result3 = sum(1 for line in f)
 print(result3)
-with open(r"ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/ucla_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result4 = sum(1 for line in f)
 print(result4)
-with open(r"keck_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/keck_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result5 = sum(1 for line in f)
 print(result5)
-with open(r"dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
+with open(r"data/processed/CSV/dignity_Service - Sheet1.csv", 'r', encoding='utf-8') as f:
     result6 = sum(1 for line in f)
 print(result6, "Services")
 items = ["MLKCH", "LADTMC", "Hollywood", "lachla", "UCLA", "Keck&Norris", "CHMC"]
@@ -262,17 +229,11 @@ plt.title('Correlation Coefficient Analysis')
 plt.xlabel('Insurances')
 plt.ylabel('Services')
 
-
-
-# In[22]:
-
-
-import geopandas as gpd
-import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrow, Rectangle
-from matplotlib.lines import Line2D
-
 def scale_bar(ax, length, units='m', location=(0.1, 0.05)):
+
+    """
+    Defines the scale bar.
+    """
 
     x0, x1 = ax.get_xlim()
     y0, y1 = ax.get_ylim()
@@ -372,10 +333,3 @@ ax.legend(handles=legend_elements, loc='upper left')
 ax.set_title("Hospitals", fontsize=16)
 plt.tight_layout()
 plt.show()
-
-
-# In[ ]:
-
-
-
-

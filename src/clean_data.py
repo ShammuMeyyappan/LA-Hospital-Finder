@@ -1,12 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import bs4
 import requests
 import csv
+
+"""
+Loops through each website and selects for only the text within lists between two specified keywords which it then outputs to a CSV.
+"""
+
 url = "https://www.dignityhealth.org/dhmf/about/dhmn/inland-empire/services"
 response = requests.get(url)
 parser = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -35,19 +34,12 @@ filtered = [
 ]
 for line in filtered: 
     print(line)
-output = r"C:\Users\pnavi\Downloads\dignity - Sheet1.csv"
+output = r"data/processed/CSV/dignity - Sheet1.csv"
 with open(output, 'w', newline='', encoding='utf8') as f:
     writer = csv.writer(f)
     for line in filtered:
         writer.writerow([line])
 
-
-# In[ ]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.keckmedicine.org/insurance/"
 response = requests.get(url)
 parser = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -72,18 +64,11 @@ result = result[:idx_end + 1]
 for line1 in result:
     print(line1)
 
-output1 = r"C:\Users\pnavi\Downloads\keck - Sheet1.csv"
+output1 = r"data/processed/CSV/keck - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line1 in result:
         writer.writerow([line1])
-
-
-# In[ ]:
-
-
-import bs4
-import requests
 
 url = "https://www.uclahealth.org/patient-resources/health-insurance-accepted-ucla-health#government-insurance"
 response = requests.get(url)
@@ -109,20 +94,13 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-output1 = r"C:\Users\pnavi\Downloads\ucla - Sheet1.csv"
+output1 = r"data/processed/CSV/ucla - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
 
     for line in result:
         writer.writerow([line])
 
-
-# In[ ]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.lach-la.com/patients-and-visitors/accepted-insurance/"
 response = requests.get(url)
 html = response.text
@@ -148,20 +126,13 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-output1 = r"C:\Users\pnavi\Downloads\lalach - Sheet1.csv"
+output1 = r"data/processed/CSV/lalach - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
 
     for line in result:
         writer.writerow([line])
 
-
-# In[ ]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.sch-hollywood.com/patients--visitors/accepted-insurance/"
 response = requests.get(url)
 html = response.text
@@ -186,19 +157,12 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-output1 = r"C:\Users\pnavi\Downloads\ssh-hollywood - Sheet1.csv"
+output1 = r"data/processed/CSV/ssh-hollywood - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[ ]:
-
-
-import bs4
-import requests
-import csv
 url = "https://ladowntownmc.com/#contracted-health-plans"
 response = requests.get(url)
 html = response.text
@@ -224,20 +188,13 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-output1 = r"C:\Users\pnavi\Downloads\ladowntownmc - Sheet1.csv"
+output1 = r"data/processed/CSV/ladowntownmc - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
 
     for line in result:
         writer.writerow([line])
 
-
-# In[ ]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.mlkch.org/health-insurance"
 response = requests.get(url)
 html = response.text
@@ -262,20 +219,13 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-output1 = r"C:\Users\pnavi\Downloads\mlkch - Sheet1.csv"
+output1 = r"data/processed/CSV/mlkch - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
 
     for line in result:
         writer.writerow([line])
 
-
-# In[26]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.mlkch.org/our-services"
 response = requests.get(url)
 html = response.text
@@ -301,20 +251,11 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line)
-output1 = r"C:\Users\pnavi\Downloads\MLKCH_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/MLKCH_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
-
-
-# In[40]:
-
-
-import pandas as pd
-import requests
-import csv
-
 
 url = "https://www.mlkch.org/contact-and-directions"
 response = requests.get(url)
@@ -341,7 +282,7 @@ result = result[:idx_end + 1]
 for line in result:
     print(line)
 
-csv_file_path = r"C:\Users\pnavi\Downloads\MLKCH_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/MLKCH_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -357,13 +298,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[25]:
-
-
-import bs4
-import requests
-import csv
 url = "https://ladowntownmc.com/"
 response = requests.get(url)
 html = response.text
@@ -388,19 +322,12 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line)
-output1 = r"C:\Users\pnavi\Downloads\ladowntownmc_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/ladowntownmc_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[42]:
-
-
-import bs4
-import requests
-import csv
 url = "https://ladowntownmc.com/"
 response = requests.get(url)
 html = response.text
@@ -427,7 +354,7 @@ for line in result:
     print(line)
 
 
-csv_file_path = r"C:\Users\pnavi\Downloads\ladowntownmc_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/ladowntownmc_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -443,13 +370,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[24]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.sch-hollywood.com/services/"
 response = requests.get(url)
 html = response.text
@@ -474,19 +394,12 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-output1 = r"C:\Users\pnavi\Downloads\sch-hollywood_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[69]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.sch-hollywood.com/services/"
 response = requests.get(url)
 html = response.text
@@ -510,7 +423,7 @@ result = result[:idx_end + 1]
 for line in result:
     print(line) 
 
-csv_file_path = r"C:\Users\pnavi\Downloads\sch-hollywood_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -526,13 +439,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[23]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.lach-la.com/programs-and-services/"
 response = requests.get(url)
 html = response.text
@@ -556,19 +462,12 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-output1 = r"C:\Users\pnavi\Downloads\lach-la_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/lach-la_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[78]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.lach-la.com/programs-and-services/"
 response = requests.get(url)
 html = response.text
@@ -595,7 +494,7 @@ for line in result:
     result_str= ' '.join(result)
     result2=result_str.replace('AboutAbout UsContact UsAwardsPatients and VisitorsFind a DoctorAccepted InsurancePreparing for HospitalizationLocationsBellflowerNorwalkProspect MedicalContact UsHospital Address','')
     result3=result2.replace('Phone Directory(323) 267-0477Follow UsFacebookTwitterInstagram','')
-    csv_file_path = r"C:\Users\pnavi\Downloads\lach-la_Service - Sheet1.csv"
+    csv_file_path = r"data/processed/CSV/lach-la_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -605,13 +504,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[22]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.uclahealth.org/medical-services"
 response = requests.get(url)
 html = response.text
@@ -637,20 +529,12 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-output1 = r"C:\Users\pnavi\Downloads\ucla_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/ucla_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[5]:
-
-
-import py4j
-import bs4
-import requests
-import csv
 url = "https://www.uclahealth.org/hospitals/reagan"
 response = requests.get(url)
 html = response.text
@@ -674,7 +558,7 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-csv_file_path = r"C:\Users\pnavi\Downloads\ucla_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/ucla_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -690,13 +574,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[210]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.sch-hollywood.com/services/"
 response = requests.get(url)
 html = response.text
@@ -721,7 +598,7 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-csv_file_path = r"C:\Users\pnavi\Downloads\sch-hollywood_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/sch-hollywood_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -737,13 +614,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[20]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.keckmedicine.org/conditions-and-treatments/"
 response = requests.get(url)
 html = response.text
@@ -766,19 +636,12 @@ idx_end = next(i for i, line in enumerate(result) if target in line)
 result = result[:idx_end + 1]   
 for line in result:
     print(line) 
-output1 = r"C:\Users\pnavi\Downloads\service_keck - Sheet1.csv"
+output1 = r"data/processed/CSV/service_keck - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[67]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.keckmedicine.org/locations/1500-san-pablo-st-los-angeles/"
 response = requests.get(url)
 html = response.text
@@ -804,7 +667,7 @@ for line in result:
     print(line)
     summary = (result[0] + result[1])
     print(summary)
-csv_file_path = r"C:\Users\pnavi\Downloads\service_keck - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/service_keck - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -814,13 +677,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-# In[68]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.keckmedicine.org/locations/1441-eastlake-ave-los-angeles/"
 response = requests.get(url)
 html = response.text
@@ -846,7 +702,7 @@ for line in result:
     #print(line)
     summary = (result[0] + result[1])
     print(summary)
-csv_file_path = r"C:\Users\pnavi\Downloads\service_keck - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/service_keck - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -857,15 +713,6 @@ with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
 
-
-
-
-# In[18]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.dignityhealth.org/socal/locations/californiahospital/services"
 response = requests.get(url)
 html = response.text
@@ -889,19 +736,12 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-output1 = r"C:\Users\pnavi\Downloads\dignity_Service - Sheet1.csv"
+output1 = r"data/processed/CSV/dignity_Service - Sheet1.csv"
 with open(output1, 'w', newline='', encoding='utf8') as j:
     writer = csv.writer(j)
     for line in result:
         writer.writerow([line])
 
-
-# In[3]:
-
-
-import bs4
-import requests
-import csv
 url = "https://www.dignityhealth.org/socal/contact-us"
 response = requests.get(url)
 html = response.text
@@ -924,7 +764,7 @@ result = result[:idx_end + 1]
 
 for line in result:
     print(line) 
-csv_file_path = r"C:\Users\pnavi\Downloads\dignity_Service - Sheet1.csv"
+csv_file_path = r"data/processed/CSV/dignity_Service - Sheet1.csv"
 with open(csv_file_path, 'r') as file:
     reader = csv.reader(file)
     data1 = list(reader)
@@ -934,10 +774,3 @@ with open(csv_file_path, 'r') as file:
 with open(csv_file_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data1)
-
-
-# In[ ]:
-
-
-
-
